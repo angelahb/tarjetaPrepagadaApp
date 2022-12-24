@@ -1,0 +1,45 @@
+<div class="box1">
+    <div class="uno">
+      <button class="btn" id="volver">
+        <i class="bi bi-arrow-return-left" [routerLink]="['/prepagada/menu']" ></i>
+      </button>
+
+        <h2>Historico de Clientes</h2> 
+
+        <button class="btn float-end" [routerLink]="['../editarCliente']">
+            <i class="bi bi-plus-circle me-2" id="agregar"></i>
+        </button>
+
+        <div class="text-center m-5" *ngIf="clientes.length == 0">
+            <div class="spinner-border" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
+        
+        <table class="table table-bordered table-hover" *ngIf="clientes.length > 0">
+            <thead>
+                <tr>
+                  <th scope="col">Nro. Cuenta</th>
+                  <th scope="col">Cliente</th>
+                  <th scope="col">Saldo</th>
+                  <th scope="col">Estado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of clientes">
+                  <td> {{ item.cuentaNro }} </td>
+                  <td> {{ item.cliente }} </td>
+                  <td> {{ item.saldo | currency }} </td>
+                  <td *ngIf="item.estado == true"> Activo </td>
+                  <td *ngIf="item.estado == false"> Inactivo </td>
+                  <td>
+                    <i class="bi bi-pencil-square me-2" id="icono" [routerLink]="['../editarCliente', item.cuentaNro]"></i>              
+                    <i class="bi bi-trash3" id="icono" (click)="eliminarCliente(item.cuentaNro!)"></i>
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+    </div>    
+</div>
+

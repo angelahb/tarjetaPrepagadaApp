@@ -1,0 +1,40 @@
+<div class="box1">
+    <div class="uno">
+        <button class="btn">
+            <i class="bi bi-arrow-return-left" [routerLink]="['/prepagada/clientes']"></i>
+        </button>
+        <h2>{{titulo}}</h2>
+
+        <div class="row">
+            <div class="col-6">
+                <img src="/assets/img/usuario.png">
+            </div>
+            <div class="col-6 mt-3">
+                <form [formGroup]="miFormulario" (ngSubmit)="agregarEditarUsuario()" autocomplete="off">
+                    <div>
+                        <label class="form-label">Nombre del Cliente</label>
+                        <input type="text" class="form-control" formControlName="cliente">
+                        <span class="form-text text-danger"
+                            *ngIf="miFormulario.controls['cliente']?.touched && miFormulario.controls['cliente'].invalid">
+                            El Nombre del Cliente es Obligatorio
+                        </span>
+                    </div>
+                    <div>
+                        <label class="form-label mt-3">Saldo</label>
+                        <input type="number" class="form-control" formControlName="saldo">
+                        <span class="form-text text-danger"
+                            *ngIf="miFormulario.controls['saldo']?.touched && miFormulario.controls['saldo'].invalid">
+                            El Saldo es Obligatorio
+                        </span>
+                    </div>
+                    <div class="form-check form-switch mt-3">
+                        <input class="form-check-input" type="checkbox" role="switch" formControlName="estado">
+                        <label class="form-check-label" for="flexSwitchCheckChecked">Estado del Cliente</label>
+                    </div>
+                    <button type="submit" class="btn btn-outline float-end">Guardar</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>

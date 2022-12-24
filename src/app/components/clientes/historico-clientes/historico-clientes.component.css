@@ -1,0 +1,42 @@
+.box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5% 10% 0% 10%;
+}
+
+.uno{
+    width: 800px;
+    margin-left: 25px;
+}
+
+h2{
+    font-size: 2rem;
+    text-align: center;
+    color: #22b8cf;
+    margin-bottom: 15px;
+}
+
+#agregar{
+    font-size: 2rem;
+}
+
+i{
+    color: #22b8cf;
+}
+
+a{
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+#volver{
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border-color: #22b8cf;
+}
+
+.spinner-border{
+    color: #22b8cf;
+}
