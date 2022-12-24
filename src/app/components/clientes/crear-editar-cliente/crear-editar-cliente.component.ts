@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ClientesService } from '../../services/clientes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-crear-editar-cliente',
@@ -57,8 +58,9 @@ export class CrearEditarClienteComponent implements OnInit {
     }
 
     this.clienteService.guardarCliente(guardaCliente).subscribe( resp => {
-      console.log('Cliente Guardado');
-      this.router.navigate(['/prepagada/clientes'])
+      // console.log('Cliente Guardado');
+      this.router.navigate(['/prepagada/clientes']);
+      Swal.fire('Cliente Creado con Exito', 'success');
     })
   }
 
